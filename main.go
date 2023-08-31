@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/roshif-study/go-restapi-gin/controllers/productcontroller"
 	"github.com/roshif-study/go-restapi-gin/models"
 )
 
@@ -9,11 +10,11 @@ func main() {
 	r := gin.Default()
 	models.ConnectDatabase()
 
-	r.GET("/api/product", produccontroller.Index)
-	r.GET("/api/product/:id", produccontroller.Show)
-	r.POST("/api/product", produccontroller.Create)
-	r.PUT("/api/product/:id", produccontroller.Update)
-	r.DELETE("/api/product", produccontroller.Delete)
+	r.GET("/api/products", productcontroller.Index)
+	r.GET("/api/product/:id", productcontroller.Show)
+	r.POST("/api/product", productcontroller.Create)
+	r.PUT("/api/product/:id", productcontroller.Update)
+	r.DELETE("/api/product", productcontroller.Delete)
 
 	r.Run()
 }
